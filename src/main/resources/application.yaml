@@ -1,0 +1,52 @@
+server:
+  port: 8999
+
+
+spring:
+  application:
+    name: "my-sso"
+  main:
+    allow-bean-definition-overriding: true
+  ldap:
+    base: dc=jlefebure,dc=com
+    urls: ldap://localhost:389
+    username: uid=user
+    password: password
+    embedded:
+      base-dn: dc=jlefebure,dc=com
+      credential:
+        username: uid=user
+        password: password
+      ldif: classpath:schema.ldif
+      port: 389
+      validation:
+        enabled: false
+
+security.key: lolsoup
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+
+auth:
+  degrade: false
+  consumers:
+    myapp:
+      clientId: "myapp"
+      clientSecret: "kjqnzlqznflkqnzflkqznfklnqf"
+      accessTokenValidity: 14400
+      refreshTokenValidity: 43200
+      scopes:
+        - "scope1"
+      grantTypes:
+        - "password"
+        - "authorization_code"
+        - "refresh_token"
+
+logging:
+  level:
+    south-logger: off
+

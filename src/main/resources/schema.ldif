@@ -1,0 +1,35 @@
+dn: dc=jlefebure,dc=com
+objectclass: top
+objectclass: domain
+objectclass: extensibleObject
+dc: jlefebure
+
+dn: ou=persons,dc=jlefebure,dc=com
+objectclass: top
+objectclass: organizationalUnit
+ou: persons
+
+# Create People
+dn: uid=jlefebure,ou=persons,dc=jlefebure,dc=com
+objectclass: top
+objectclass: person
+objectclass: organizationalPerson
+objectclass: inetOrgPerson
+cn: Jordan Lefébure
+sn: Jordan
+uid: jlefebure
+mail: nope@gmail.com
+locked: 0
+site: cn=Paris,ou=sites,dc=jlefebure,dc=com
+userPassword: pass12345
+
+dn: ou=sites,dc=jlefebure,dc=com
+objectclass: top
+ou: sites
+
+# Create Groups
+dn: cn=Paris,ou=sites,dc=jlefebure,dc=com
+objectclass: top
+objectclass: site
+cn: Paris
+ou: Paris
